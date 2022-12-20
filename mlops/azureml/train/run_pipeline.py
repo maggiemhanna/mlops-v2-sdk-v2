@@ -166,8 +166,8 @@ def main():
         )
 
         return {
-            "pipeline_job_train_data": prepare.outputs.train_data,
-            "pipeline_job_test_data": prepare.outputs.test_data,
+            "pipeline_job_train_data": prep.outputs.train_data,
+            "pipeline_job_test_data": prep.outputs.test_data,
             "pipeline_job_trained_model": train.outputs.model_output,
             "pipeline_job_score_report": evaluate.outputs.evaluation_output,
         }
