@@ -175,7 +175,7 @@ def main():
 
 
     pipeline_job = taxi_training_pipeline(
-        Input(path=args.data_name + "@latest"), args.enable_monitoring, args.table_name
+        Input(path=args.data_name + "@latest", type="uri_file"), args.enable_monitoring, args.table_name
     )
 
     # set pipeline level compute
