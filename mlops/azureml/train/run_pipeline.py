@@ -74,7 +74,7 @@ def main():
                 --test_data ${{outputs.test_data}} \
                 --enable_monitoring ${{inputs.enable_monitoring}} \
                 --table_name ${{inputs.table_name}}",
-        environment=args.environment_name,
+        environment=args.environment_name+"@latest",
         inputs={
             "raw_data": Input(type="uri_file"),
             "enable_monitoring": Input(type="string"),
@@ -94,7 +94,7 @@ def main():
         command="python train.py \
                 --train_data ${{inputs.train_data}} \
                 --model_output ${{outputs.model_output}}",
-        environment=args.environment_name,
+        environment=args.environment_name+"@latest",
         inputs={"train_data": Input(type="uri_folder")},
         outputs={"model_output": Output(type="uri_folder")}
     )
@@ -108,7 +108,7 @@ def main():
                 --model_input ${{inputs.model_input}} \
                 --test_data ${{inputs.test_data}} \
                 --evaluation_output ${{outputs.evaluation_output}}",
-        environment=args.environment_name,
+        environment=args.environment_name+"@latest",
         inputs={
             "model_name": Input(type="string"),
             "model_input": Input(type="uri_folder"),
@@ -128,7 +128,7 @@ def main():
                 --model_path ${{inputs.model_path}} \
                 --evaluation_output ${{inputs.evaluation_output}} \
                 --model_info_output_path ${{outputs.model_info_output_path}}",
-        environment=args.environment_name,
+        environment=args.environment_name+"@latest",
         inputs={
             "model_name": Input(type="string"),
             "model_path": Input(type="uri_folder"),
